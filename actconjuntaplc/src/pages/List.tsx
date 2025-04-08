@@ -23,7 +23,7 @@ export default function List({ evaluados }: Props) {
               Género
             </th>
             <th scope="col" className="px-6 py-3">
-              Estado
+              Graduado
             </th>
           </tr>
         </thead>
@@ -45,7 +45,7 @@ export default function List({ evaluados }: Props) {
               <td className="px-6 py-4">{evaluado.curp}</td>
               <td className="px-6 py-4">{evaluado.genero}</td>
               <td className="px-6 py-4">
-                {evaluado.graduado === "true" ? "Graduado" : "Reprobado"}
+                {evaluado.graduado === "SI" ? "SI" : "NO"}
               </td>
             </tr>
           ))}
