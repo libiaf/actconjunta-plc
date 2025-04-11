@@ -32,7 +32,9 @@ const App = (props: Props) => {
             </Link>
           </p>
           <p className="level-item">
-            <a>Orders</a>
+            <Link to={"/graphs"}>
+              <a>Graphs</a>
+            </Link>
           </p>
           <p className="level-item">
             <a>Providers</a>

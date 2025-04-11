@@ -2,13 +2,22 @@ import Filter from "./Filter";
 import List from "./List";
 import { Evaluado } from "my-types";
 import { useState, useEffect } from "react";
-import { getAllEvaluados } from "../api/EvaluadoAPI";
+import { deleteEvaluado, getAllEvaluados } from "../api/EvaluadoAPI";
 
 export default function ListPerson() {
 
   const[name, setName] = useState<string>("")
   const[graduado, setGraduado] = useState<string>("All")
-  const [evaluados, setEvaluados] = useState<Evaluado[]>([]);
+  const[evaluados, setEvaluados] = useState<Evaluado[]>([]);
+
+  const handleDelete = async (id: number) => {
+    try {
+      await deleteEvaluado(id); // ahora sí está mandando el id en el body
+      setEvaluados((prev) => prev.filter((p) => p.id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };  
 
   const filteredProducts = evaluados.filter((evaluado) => {
     return (
@@ -21,6 +30,7 @@ export default function ListPerson() {
     getAllEvaluados().then((data: Evaluado[]) => setEvaluados(data));
   }, []);
   console.log(evaluados);
+
   return (
     <>
       <div className="flex flex-col gap-4 my-4 ">
@@ -38,7 +48,7 @@ export default function ListPerson() {
         </div>
       </div>
       <div className="relative overflow-x-auto">
-        <List evaluados={filteredProducts} />
+        <List evaluados={filteredProducts} onDelete={handleDelete}/>
       </div>
       {/* <div>
         <Filter />

@@ -1,10 +1,12 @@
+import { PencilIcon, TrashIcon } from "@heroicons/react/16/solid"
 import { Evaluado } from "my-types";
 
 type Props = {
   evaluados: Evaluado[];
+  onDelete: (id: number) => void;
 };
 
-export default function List({ evaluados }: Props) {
+export default function List({ evaluados, onDelete}: Props) {
   return (
     <>
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -25,6 +27,9 @@ export default function List({ evaluados }: Props) {
             <th scope="col" className="px-6 py-3">
               Graduado
             </th>
+            <th scope="col" className="px-6 py-3"> 
+
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -42,15 +47,27 @@ export default function List({ evaluados }: Props) {
               <td className="px-6 py-4">
                 {evaluado.nombre + " " + evaluado.apellidos}
               </td>
-              <td className="px-6 py-4">{evaluado.curp}</td>
-              <td className="px-6 py-4">{evaluado.genero}</td>
+              <td className="px-6 py-4">
+                {evaluado.curp}
+              </td>
+              <td className="px-6 py-4">
+                {evaluado.genero}
+              </td>
               <td className="px-6 py-4">
                 {evaluado.graduado === "SI" ? "SI" : "NO"}
+              </td>
+              <td className="flex gap-2 items-center">
+                <button className="flex items-center gap-2 text-gray-500 hover:text-gray-700">
+                  <PencilIcon className="h-5 w-5" /> Edit
+                </button>
+                <button className="flex items-center gap-2 text-red-500 hover:text-red-700" onClick={() => onDelete(evaluado.id)}>
+                  <TrashIcon className="h-5 w-5" /> Delete
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </>
-  );
+    </>
+  );
 }

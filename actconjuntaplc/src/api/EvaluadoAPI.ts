@@ -13,3 +13,16 @@ export const getAllEvaluados = async () => {
         return [];
     }
 };
+
+export const deleteEvaluado = async (id: number) => {
+    try {
+      const res = await api.delete(`/evaluados/deleteevaluado`, {
+        data: { id },
+      });
+      return res.data;
+    } catch (error) {
+      console.error("Error al eliminar persona:", error);
+      throw error;
+    }
+  };
+  

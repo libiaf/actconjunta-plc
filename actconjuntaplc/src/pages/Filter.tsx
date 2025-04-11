@@ -23,7 +23,7 @@ export default function Filter(props:Props) {
                     onChange={(e) => props.setGraduado(e.target.value)}
                 >
                     <option value="" disabled>Select an option</option>
-                    <option key={1} value="Todos">Todos</option>
+                    <option key={1} value="All">Todos</option>
                     <option key={2} value="SI">Graduado</option>
                     <option key={3} value="NO">No Graduado</option>
                 </select>
