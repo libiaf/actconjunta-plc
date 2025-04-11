@@ -14,17 +14,17 @@ export default function Graphs() {
   
     const contarGraduados = (evaluados: Evaluado[]) => {
       const graduados = evaluados.filter((est) => est.graduado === "SI").length;
-      const reprobados = evaluados.length - graduados;
+      const nograduados = evaluados.length - graduados;
       return [
-        { nombre: "Graduados", cantidad: graduados },
-        { nombre: "Reprobados", cantidad: reprobados },
+        { nombre: "Graduados", personas: graduados },
+        { nombre: "No graduados", personas: nograduados },
       ];
     };
   
-    const dataBar = contarGraduados(evaluados);
+    const data = contarGraduados(evaluados);
   
-    const contarGeneroGraduados = (people: Evaluado[]) => {
-      const graduados = people.filter((p) => p.graduado === "SI");
+    const contarGeneroGraduados = (ev: Evaluado[]) => {
+      const graduados = ev.filter((p) => p.graduado === "SI");
       const hombres = graduados.filter(
         (p) => p.genero.trim().toUpperCase() === "HOMBRE"
       ).length;
@@ -45,18 +45,18 @@ export default function Graphs() {
     return (
       <div style={{ display: "flex", gap: "50px", flexWrap: "wrap" }}>
         <div>
-          <h3>Graduados vs Reprobados</h3>
-          <BarChart width={500} height={300} data={dataBar}>
+          <h3>Graduados vs No Graduados</h3>
+          <BarChart width={500} height={300} data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="nombre" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="cantidad" fill="#82ca9d" />
+            <Bar dataKey="personas" fill="#886dab" />
           </BarChart>
         </div>
   
         <div>
-          <h3>Distribución de Género (Graduados)</h3>
+          <h3>Género (Graduados)</h3>
           <ResponsiveContainer width={500} height={300}>
             <PieChart>
               <Pie
@@ -64,7 +64,7 @@ export default function Graphs() {
                 cx="50%"
                 cy="50%"
                 outerRadius={100}
-                fill="#8884d8"
+                fill="#86ab6d"
                 dataKey="value"
                 label
               >

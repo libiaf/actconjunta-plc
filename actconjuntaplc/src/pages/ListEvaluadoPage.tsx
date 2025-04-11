@@ -12,7 +12,7 @@ export default function ListPerson() {
 
   const handleDelete = async (id: number) => {
     try {
-      await deleteEvaluado(id); // ahora sí está mandando el id en el body
+      await deleteEvaluado(id); 
       setEvaluados((prev) => prev.filter((p) => p.id !== id));
     } catch (error) {
       console.log(error);
