@@ -5,6 +5,8 @@ import router from "./routes/Routes"
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './styles/agregarEvaluadoStyles.css';
+import './styles/listaEvaluadoStyles.css';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

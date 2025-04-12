@@ -3,9 +3,9 @@ import Nav from "./components/Nav";
 
 const App = () => {
   return (
-    <div className="d-flex">
+    <div className="d-flex flex-column flex-lg-row min-vh-100">
       <Nav />
-      <div className="flex-1 ml-4 p-6">
+      <div className="flex-grow-1">
         <Outlet />
       </div>
     </div>
