@@ -1,54 +1,14 @@
-import { Outlet } from "react-router";
-import "./App.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Nav from "./components/Nav";
 
-
-interface Props { }
-
-const App = (props: Props) => {
+const App = () => {
   return (
-    <>
-      <nav className="level">
-        <div className="level-left">
-          <div className="level-item">
-            <FontAwesomeIcon icon={faHome} className="fas fa-lg mr-3" />
-            <p className="subtitle is-5">
-              <strong>This's</strong> my store
-            </p>
-          </div>
-        </div>
-
-        <div className="level-right">
-          <p className="level-item">
-            <Link to={"/"}>
-              <strong>Home</strong>
-            </Link>
-          </p>
-          <p className="level-item">
-            <Link to={"/evaluados"}>
-              <a>People</a>
-            </Link>
-          </p>
-          <p className="level-item">
-            <Link to={"/graphs"}>
-              <a>Graphs</a>
-            </Link>
-          </p>
-          <p className="level-item">
-            <a>Providers</a>
-          </p>
-        </div>
-
-        <div className="level-right">
-          <p className="level-item">
-            <button type="button" className="button is-link is-outlined">Login</button>
-          </p>
-        </div>
-      </nav>
-      <Outlet />
-    </>
+    <div className="d-flex">
+      <Nav />
+      <div className="flex-1 ml-4 p-6">
+        <Outlet />
+      </div>
+    </div>
   );
 };
 

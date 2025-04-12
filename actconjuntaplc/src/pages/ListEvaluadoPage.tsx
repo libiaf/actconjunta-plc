@@ -5,8 +5,7 @@ import { Evaluado } from "my-types";
 import { useState, useEffect } from "react";
 import { deleteEvaluado, getAllEvaluados } from "../api/EvaluadoAPI";
 
-export default function ListPerson() {
-
+const ListPerson = () => {
   const [name, setName] = useState<string>("");
   const [graduado, setGraduado] = useState<string>("All");
   const [evaluados, setEvaluados] = useState<Evaluado[]>([]);
@@ -18,7 +17,7 @@ export default function ListPerson() {
     } catch (error) {
       console.log(error);
     }
-  };  
+  };
 
   const filteredProducts = evaluados.filter((evaluado) => {
     return (
@@ -30,16 +29,13 @@ export default function ListPerson() {
   useEffect(() => {
     getAllEvaluados().then((data: Evaluado[]) => setEvaluados(data));
   }, []);
-  
+
   return (
     <>
       <Header />
 
       <div className="flex flex-col gap-4 my-4 px-6">
-        <h3 className="text-3xl font-bold text-gray-800 text-left">
-          Lista de evaluados
-        </h3>
-
+        <h3 className="text-3xl font-bold text-gray-800 text-left">Lista de evaluados</h3>
         <div className="h-4"></div>
 
         <Filter
@@ -61,4 +57,7 @@ export default function ListPerson() {
       </div>
     </>
   );
-}
+};
+
+export default ListPerson;
+
