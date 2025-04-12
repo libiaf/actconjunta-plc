@@ -1,22 +1,26 @@
-import React from 'react';
 import perfilImg from "../images/admin.png";
 
 export default function Header() {
-    return (
-        <header className="header d-flex justify-content-between p-3 bg-white shadow-sm">
-            <h1 className="fs-1 mt-3 ms-4 evaluados">
-                Evaluados
-            </h1>
-            <div className="d-flex align-items-center perfil">
-                <img src={perfilImg} alt="Foto de Perfil" className="img-fluid" style={{ maxWidth: '130px' }} />
-                <div>
-                    <h2 className="fs-4 mb-0 mt-2">Bienvenido, Emilio Castro</h2>
-                    <h3 className="fs-4 mt-0">Administrador</h3>
-                </div>
-            </div>
-        </header>
-    );
-};
+  return (
+    <header className="bg-white shadow-sm p-3">
+      <div className="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <h1 className="fs-2 mb-3 mb-md-0 ms-md-4">Evaluados</h1>
+        <div className="d-flex align-items-center text-center">
+          <img
+            src={perfilImg}
+            alt="Foto de Perfil"
+            className="img-fluid me-2"
+            style={{ maxWidth: "90px" }}
+          />
+          <div>
+            <h2 className="fs-5 mb-0">Bienvenido, Emilio Castro</h2>
+            <h3 className="fs-6 mt-0">Administrador</h3>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
 
 
 
