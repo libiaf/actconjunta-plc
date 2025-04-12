@@ -46,7 +46,7 @@ export default function Nav() {
       >
         <div>
           <img
-            src={configImg} // Usamos la imagen importada
+            src={configImg} 
             alt="Icono Config."
             style={{
               maxWidth: "70px",
